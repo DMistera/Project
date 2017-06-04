@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Shader Files">
+      <UniqueIdentifier>{aefd4321-b948-49c8-907b-f487b93bc0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files\Color">
+      <UniqueIdentifier>{24855c76-b006-4ea6-b6ae-11f18b68930b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files\Texture">
+      <UniqueIdentifier>{3af68ace-58a7-49b3-91d1-b4a97dad7d6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System">
+      <UniqueIdentifier>{4858d81e-3465-434b-9fc7-377aa3272ecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics">
+      <UniqueIdentifier>{d2b5f925-13f0-4666-a168-5faec3146c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Camera">
+      <UniqueIdentifier>{d775f680-2e00-4df4-bcb7-5291432cf663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Direct3D">
+      <UniqueIdentifier>{5be78adf-0e46-4b3c-aadb-949bb8dc4317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Model">
+      <UniqueIdentifier>{534ee56a-ec8d-485b-b76c-818381214f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Texture">
+      <UniqueIdentifier>{e492c8bc-2689-4328-9169-ec8f5ed2f2cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Shaders">
+      <UniqueIdentifier>{f0293899-39e0-411d-9109-ac1f8d827c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Shaders\ColorShader">
+      <UniqueIdentifier>{c541d196-feeb-4745-bbd4-c026d12a054b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Shaders\TextureShader">
+      <UniqueIdentifier>{e3c966c7-7ebd-48d5-92ba-2e777c4e68c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game">
+      <UniqueIdentifier>{083d6326-0180-4707-b234-bec24c7de162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{35d7745c-57fe-49b5-b19b-cab166d19bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\Sprite">
+      <UniqueIdentifier>{5d8fca6e-3978-4e1f-930a-15707e2a5e9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\State">
+      <UniqueIdentifier>{d377bcf8-2b75-4d0b-94ae-d85bb5ddeee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Block">
+      <UniqueIdentifier>{c49960cc-1b8d-495f-a4aa-e7d8159a85c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\State\Playground">
+      <UniqueIdentifier>{2b01dc94-f1f0-4a0c-a975-2fa2b6d36941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Input">
+      <UniqueIdentifier>{6f61a826-cec5-46b4-8a3c-cdcad0b5aed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\State\Cursor">
+      <UniqueIdentifier>{2759f5c8-342f-4d32-82d9-50621e2b781a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Graphics\Model\Bitmap">
+      <UniqueIdentifier>{5fd5ffbc-97e4-4d36-b2de-12ca8f916ff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Text">
+      <UniqueIdentifier>{8e995eb3-7722-4afd-8041-a2e275c4c8d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Renderable">
+      <UniqueIdentifier>{63aae367-23c7-47ca-90f2-2346b8de4c49}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\System\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorShader.cpp">
+      <Filter>Source Files\System\Graphics\Shaders\ColorShader</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureShader.cpp">
+      <Filter>Source Files\System\Graphics\Shaders\TextureShader</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Direct3D.cpp">
+      <Filter>Source Files\System\Graphics\Direct3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\System\Graphics\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files\System\Graphics\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\System\Graphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source Files\System\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\System\Game\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\System\Graphics\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\System\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\System\Game\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Source Files\System\Game\Sprite\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Playground.cpp">
+      <Filter>Source Files\System\Game\State\Playground</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files\System\Game\Sprite\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>Source Files\System\Game\State\Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>Source Files\System\Graphics\Model\Bitmap</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TargetVersion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Source Files\System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorShader.h">
+      <Filter>Source Files\System\Graphics\Shaders\ColorShader</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureShader.h">
+      <Filter>Source Files\System\Graphics\Shaders\TextureShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Source Files\System\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Source Files\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Source Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Direct3D.h">
+      <Filter>Source Files\System\Graphics\Direct3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\System\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Source Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Source Files\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Source Files\System\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Source Files\System\Game\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Source Files\System\Graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Source Files\System\Game\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Source Files\System\Game\Sprite\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Playground.h">
+      <Filter>Source Files\System\Game\State\Playground</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Source Files\System\Game\Sprite\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderable.h">
+      <Filter>Source Files\System\Game\Sprite\Renderable</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>Source Files\System\Game\State\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>Source Files\System\Graphics\Model\Bitmap</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Color.ps">
+      <Filter>Shader Files\Color</Filter>
+    </None>
+    <None Include="Color.vs">
+      <Filter>Shader Files\Color</Filter>
+    </None>
+    <None Include="Texture.ps">
+      <Filter>Shader Files\Texture</Filter>
+    </None>
+    <None Include="Texture.vs">
+      <Filter>Shader Files\Texture</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\admin\Desktop\texture.dds">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

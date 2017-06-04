@@ -1,0 +1,1 @@
+D:\DXProjectile\Projectile\Projectile\Texture.vs(23,12): error X3000: syntax error: unexpected token 'texture'
