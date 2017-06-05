@@ -9,7 +9,7 @@ Cursor::Cursor(Game* gameP, System* systemP) : State(gameP, systemP) {
 
 bool Cursor::initialize() {
 	cursor = new Sprite(new Texture("Resources//Textures//cursor.dds"), new TextureShader(), new Bitmap(20.0f, 20.0f));
-	if (!initializeObject(cursor))
+	if (!addSprite(cursor))
 		return false;
 	cursor->setColor(Vector(0.0f, 1.0f, 0.0f));
 	cursor->setAlpha(0.3f);
@@ -31,5 +31,5 @@ void Cursor::shutdown() {
 }
 
 Vector Cursor::getCursorPosition() {
-	return cursor->getPosiiton();
+	return cursor->getPosition();
 }

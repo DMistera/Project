@@ -11,6 +11,7 @@ class Game {
 public:
 	Game(System * systemP);
 	bool initialize(int screenWidth, int screenHeight, bool fullScreen);
+	bool addState(State * state);
 	bool update(long);
 	bool render();
 	void shutdown();

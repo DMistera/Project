@@ -82,6 +82,9 @@
     <Filter Include="Source Files\System\Game\Sprite\Renderable">
       <UniqueIdentifier>{63aae367-23c7-47ca-90f2-2346b8de4c49}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Transition">
+      <UniqueIdentifier>{2fe9f8ad-ccd8-4f41-bf16-9f2596417790}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -143,6 +146,9 @@
     </ClCompile>
     <ClCompile Include="Bitmap.cpp">
       <Filter>Source Files\System\Graphics\Model\Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>Source Files\System\Game\Sprite\Transition</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="Bitmap.h">
       <Filter>Source Files\System\Graphics\Model\Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>Source Files\System\Game\Sprite\Transition</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

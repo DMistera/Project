@@ -23,7 +23,13 @@ bool State::render() {
 	return true;
 }
 
-bool State::initializeObject(Renderable* object) {
+bool State::update(long) {
+	for (Renderable &object : objects) {
+		//TODO All transitions should go to class renderable (?)
+	}
+}
+
+bool State::addSprite(Renderable* object) {
 	if (!object->initialize(gameP->getGraphics()->getDirect3D(), systemP->getHWND(), loadedTextures, loadedShaders, loadedModels))
 		return false;
 	objects->push_back(object);

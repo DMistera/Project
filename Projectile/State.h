@@ -11,11 +11,11 @@ class State {
 public:
 	State(Game* gameP, System* systemP);
 	virtual bool initialize() = 0;
-	virtual bool update(long) = 0;
 	virtual void shutdown() = 0;
 	bool render();
+	bool update(long);
 protected:
-	bool initializeObject(Renderable * object);
+	bool addSprite(Renderable * object);
 	//Loaded assets
 	list<Model*>* loadedModels;
 	list<Texture*>* loadedTextures;

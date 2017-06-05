@@ -130,6 +130,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureShader.cpp" />
+    <ClCompile Include="Transition.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureShader.h" />
+    <ClInclude Include="Transition.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>

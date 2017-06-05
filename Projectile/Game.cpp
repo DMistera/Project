@@ -28,12 +28,17 @@ bool Game::initialize(int screenWidth, int screenHeight, bool fullScreen) {
 		MessageBox(*hwnd, "Failed to initialize direct input", "Error", NULL);
 		return false;
 	}
-	Playground* playground = new Playground(this, systemP);	   //TODO Fix this mess
-	playground->initialize();
-	states->push_front(playground);	
-	Cursor* cursor = new Cursor(this, systemP);	   //TODO Fix this mess
-	cursor->initialize();
-	states->push_front(cursor);
+	Playground* playground = new Playground(this, systemP);	
+	addState(playground);
+	Cursor* cursor = new Cursor(this, systemP);	   
+	addState(cursor);
+	return true;
+}
+
+bool Game::addState(State* state) {
+	if (!state->initialize())
+		return false;
+	states->push_back(state);
 	return true;
 }
 

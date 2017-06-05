@@ -14,12 +14,15 @@ bool Playground::initialize() {
 
 bool Playground::showText() {
 	text = new Text("Naxess is a viking");
-	if (!initializeObject(text))
+	if (!addSprite(text))
 		return false;
 	return true;
 }
 
 bool Playground::makeGrass() {
+	Sprite* grass = new Block();
+	addSprite(grass);
+	grass->setScale(Vector(2.0f, 0.5f));
 	return true;
 }
 

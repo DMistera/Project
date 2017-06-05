@@ -9,7 +9,9 @@ Sprite::Sprite(Texture * texture, Shader * shader, Model * model) {
 	this->shader = shader;
 	this->model = model;
 	color = Vector(1.0f, 1.0f, 1.0f);
+	scale = Vector(1.0f, 1.0f);
 	alpha = 1.0f;
+	transitions = new list<Transition*>;
 }
 
 bool Sprite::initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) {
@@ -32,9 +34,14 @@ bool Sprite::render(Direct3D* direct3D, HWND* hwnd, Camera* camera) {
 	direct3D->getWorldMatrix(worldMatrix);
 	direct3D->getOrthographicMatrix(orthographicMatrix);
 
+	//Set position
 	worldMatrix._41 = position.getX();
 	worldMatrix._42 = position.getY();
 	worldMatrix._43 = position.getZ();
+
+	//Set scale
+	worldMatrix._11 = scale.getX();
+	worldMatrix._22 = scale.getY();
 
 	D3DXVECTOR3 d3color = D3DXVECTOR3(color.getX(), color.getY(), color.getZ());
 
@@ -48,12 +55,30 @@ bool Sprite::render(Direct3D* direct3D, HWND* hwnd, Camera* camera) {
 void Sprite::shutdown() {
 }
 
-Vector Sprite::getPosiiton() {
+Vector Sprite::getPosition() {
 	return position;
 }
 
 void Sprite::setPosition(Vector v) {
 	position = v;
+}
+
+//Setters
+
+void Sprite::setX(float v) {
+	position.setX(v);
+}
+
+void Sprite::setY(float v) {
+	position.setY(v);
+}
+
+void Sprite::setWidthScale(float v) {
+	scale.setX(v);
+}
+
+void Sprite::setHeightScale(float v) {
+	scale.setY(v);
 }
 
 void Sprite::setColor(Vector v) {
@@ -63,6 +88,28 @@ void Sprite::setColor(Vector v) {
 void Sprite::setAlpha(float v) {
 	alpha = v;
 }
+
+void Sprite::setScale(Vector v) {
+	scale = v;
+}
+
+//Transitions
+
+void Sprite::updateTransitions() {
+	list<Transition*>::iterator transition = transitions->begin();
+	while (transition != transitions->end()) {
+		if ((*transition)->isOutdated()) {
+			delete (*transition);
+			transitions->erase(transition++);
+		}
+		else {
+			(*transition)->update();
+			++transition;
+		}
+	}
+}
+
+//Initialization
 
 bool Sprite::initializeTexture(list<Texture*>* loadedTextures, Direct3D* direct3D, HWND* hwnd) {
 	bool unique = true;
