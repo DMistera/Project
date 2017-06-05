@@ -22,14 +22,16 @@ bool Playground::showText() {
 bool Playground::makeGrass() {
 	Sprite* grass = new Block();
 	addSprite(grass);
-	grass->setScale(Vector(2.0f, 0.5f));
+	for (int i = 0; i < 100; i++) {
+		grass->move(Transition::Easing::LINEAR, i * 1000, (i + 1) * 1000, -50, 50);
+	}
 	return true;
 }
 
 bool Playground::update(long deltaTime) {
 	moveCamera(deltaTime);
 	Vector mousePosition = gameP->getInput()->getMousePosition();
-	text->setText("x: " + to_string(mousePosition.getX()));
+	text->setText(to_string(sizeof(unsigned int)) + " " + to_string(sizeof(Vector)));
 	return true;
 }
 

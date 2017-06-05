@@ -9,6 +9,7 @@ public:
 	Text(string text);
 	bool initialize(Direct3D * direct3D, HWND * hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) override;
 	bool render(Direct3D* direct3D, HWND* hwnd, Camera* camera) override;
+	bool update() override;
 	void getTextureBorders(Vector * topLeft, Vector * bottomRight, int character);
 	float getWidth();
 	void setText(string text);

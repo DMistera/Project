@@ -48,6 +48,7 @@ bool Game::update(long deltaTime) {
 	if (input->isKeyDown(DIK_ESCAPE))
 		return false;
 	for (State* &state : *states) {
+		state->updateObjects();
 		if (!(state->update(deltaTime)))
 			return false;
 	}

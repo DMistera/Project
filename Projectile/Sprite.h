@@ -18,8 +18,10 @@ public:
 	Sprite(Texture* texture, Shader* shader, Model* model);
 	bool initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) override;
 	bool render(Direct3D* direct3D, HWND* hwnd, Camera* camera) override;
+	bool update() override;
 	void shutdown();
 	Vector getPosition();
+
 	void setPosition(Vector);
 	void setX(float v);
 	void setY(float v);
@@ -28,6 +30,17 @@ public:
 	void setColor(Vector v);
 	void setAlpha(float v);
 	void setScale(Vector v);
+	void moveX(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void moveY(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void move(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector startValue, Vector endValue);
+	void scaleX(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void scaleY(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void scale(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector startValue, Vector endValue);
+	void fade(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void red(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void green(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void blue(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	void color(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector startValue, Vector endValue);
 	void updateTransitions();
 protected:
 	bool initializeTexture(list<Texture*>* loadedTextures, Direct3D * direct3D, HWND * hwnd);
@@ -35,10 +48,10 @@ protected:
 	bool initializeModel(list<Model*>*, Direct3D*, HWND*);
 	list<Transition*>* transitions;
 	Vector position;
-	Vector scale;
+	Vector scaleVector;	   //TODO Change to Vector2 and Vector3
 	Texture* texture;
 	Shader* shader;
 	Model* model;
-	Vector color;
+	Vector colorVector;
 	float alpha;
 };

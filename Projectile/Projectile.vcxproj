@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="ColorShader.h" />
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="Direct3D.h" />

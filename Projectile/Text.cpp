@@ -50,3 +50,7 @@ float Text::getWidth() {
 void Text::setText(string text) {
 	this->text = text;
 }
+
+bool Text::update() {
+	return true;
+}

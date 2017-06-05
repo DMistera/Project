@@ -85,6 +85,9 @@
     <Filter Include="Source Files\System\Game\Sprite\Transition">
       <UniqueIdentifier>{2fe9f8ad-ccd8-4f41-bf16-9f2596417790}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Character">
+      <UniqueIdentifier>{ba2c9049-d0a7-4a00-a2ae-2e4aa1b2e9f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -217,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="Transition.h">
       <Filter>Source Files\System\Game\Sprite\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Source Files\System\Game\Sprite\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,8 +12,9 @@ public:
 	State(Game* gameP, System* systemP);
 	virtual bool initialize() = 0;
 	virtual void shutdown() = 0;
+	virtual bool update(long deltaTime) = 0;
 	bool render();
-	bool update(long);
+	void updateObjects();
 protected:
 	bool addSprite(Renderable * object);
 	//Loaded assets

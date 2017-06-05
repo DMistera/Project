@@ -23,9 +23,9 @@ bool State::render() {
 	return true;
 }
 
-bool State::update(long) {
-	for (Renderable &object : objects) {
-		//TODO All transitions should go to class renderable (?)
+void State::updateObjects() {
+	for (Renderable* &object : *objects) {
+		object->update();
 	}
 }
 
