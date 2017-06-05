@@ -8,8 +8,8 @@ Text::Text(string text) {
 
 bool Text::initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) {
 	for (int i = startCharacter; i < startCharacter + rows*columns; i++) {
-		Vector topLeft;
-		Vector bottomRight;
+		Vector3 topLeft;
+		Vector3 bottomRight;
 		getTextureBorders(&topLeft, &bottomRight, i);
 		Sprite* letter = new Sprite(
 			new Texture("Resources//Textures//font.dds"),
@@ -27,7 +27,7 @@ bool Text::render(Direct3D * direct3D, HWND * hwnd, Camera * camera) {
 	for (unsigned int i = 0; i < text.length(); i++) {
 		int index = text.at(i) - startCharacter;
 		Sprite* letter = letters->at(index);
-		letter->setPosition(Vector(startX, position.getY()));
+		letter->setPosition(Vector2(startX, position.getY()));
 		if (!(letter->render(direct3D, hwnd, camera)))
 			return false;
 		startX += size;
@@ -35,7 +35,7 @@ bool Text::render(Direct3D * direct3D, HWND * hwnd, Camera * camera) {
 	return true;
 }
 
-void Text::getTextureBorders(Vector* topLeft, Vector* bottomRight, int character) {
+void Text::getTextureBorders(Vector3* topLeft, Vector3* bottomRight, int character) {
 	int order = character - startCharacter;
 	topLeft->setX((1.0f / columns)*(order % columns));
 	topLeft->setY((1.0f / rows)*(order / columns));
@@ -51,6 +51,9 @@ void Text::setText(string text) {
 	this->text = text;
 }
 
-bool Text::update() {
+void Text::shutdownComponent() {
+}
+
+bool Text::updateComponent() {
 	return true;
 }

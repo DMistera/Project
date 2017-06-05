@@ -3,7 +3,6 @@
 #include <list>	
 #include "Direct3D.h"
 #include "Camera.h"
-#include "Sprite.h"
 
 class System;
 

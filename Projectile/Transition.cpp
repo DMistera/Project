@@ -1,11 +1,11 @@
 #include "Transition.h"
 
-Transition::Transition(Sprite * sprite, Type type, Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
+Transition::Transition(Renderable* sprite, Type type, Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
 	target = sprite;
 	this->type = type;
 	this->easing = easing;
-	this->startTime = startTime + GetTickCount64();
-	this->endTime = endTime + GetTickCount64();
+	this->startTime = startTime + (unsigned long)GetTickCount64();
+	this->endTime = endTime + (unsigned long)GetTickCount64();
 	this->startValue = startValue;
 	this->endValue = endValue;
 }

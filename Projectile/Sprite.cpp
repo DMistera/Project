@@ -1,17 +1,9 @@
 #include "Sprite.h"
 
-#include "Game.h"
-#include "System.h"
-
 Sprite::Sprite(Texture * texture, Shader * shader, Model * model) {
-	position = Vector();
 	this->texture = texture;
 	this->shader = shader;
 	this->model = model;
-	colorVector = Vector(1.0f, 1.0f, 1.0f);
-	scaleVector = Vector(1.0f, 1.0f);
-	alpha = 1.0f;
-	transitions = new list<Transition*>;
 }
 
 bool Sprite::initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) {
@@ -37,7 +29,6 @@ bool Sprite::render(Direct3D* direct3D, HWND* hwnd, Camera* camera) {
 	//Set position
 	worldMatrix._41 = position.getX();
 	worldMatrix._42 = position.getY();
-	worldMatrix._43 = position.getZ();
 
 	//Set scale
 	worldMatrix._11 = scaleVector.getX();
@@ -52,112 +43,11 @@ bool Sprite::render(Direct3D* direct3D, HWND* hwnd, Camera* camera) {
 	return true;
 }
 
-void Sprite::shutdown() {
-}
-
-Vector Sprite::getPosition() {
-	return position;
-}
-
-void Sprite::setPosition(Vector v) {
-	position = v;
-}
-
-//Setters
-
-void Sprite::setX(float v) {
-	position.setX(v);
-}
-
-void Sprite::setY(float v) {
-	position.setY(v);
-}
-
-void Sprite::setWidthScale(float v) {
-	scaleVector.setX(v);
-}
-
-void Sprite::setHeightScale(float v) {
-	scaleVector.setY(v);
-}
-
-void Sprite::setColor(Vector v) {
-	colorVector = v;
-}
-
-void Sprite::setAlpha(float v) {
-	alpha = v;
-}
-
-void Sprite::setScale(Vector v) {
-	scaleVector = v;
-}
-
-//Transitions
-
-void Sprite::moveX(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::MOVE_X, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::moveY(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::MOVE_Y, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::move(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector startValue, Vector endValue) {
-	moveX(easing, startTime, endTime, startValue.getX(), endValue.getX());
-	moveY(easing, startTime, endTime, startValue.getY(), endValue.getY());
-}
-
-void Sprite::scaleX(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::SCALE_X, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::scaleY(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::SCALE_Y, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::scale(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector startValue, Vector endValue) {
-	scaleX(easing, startTime, endTime, startValue.getX(), endValue.getX());
-	scaleY(easing, startTime, endTime, startValue.getY(), endValue.getY());
-}
-
-void Sprite::fade(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::FADE, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::red(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::COLOR_RED, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::green(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::COLOR_GREEN, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::blue(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue) {
-	transitions->push_back(new Transition(this, Transition::Type::COLOR_BLUE, easing, startTime, endTime, startValue, endValue));
-}
-
-void Sprite::color(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector startValue, Vector endValue) {
-	red(easing, startTime, endTime, startValue.getX(), endValue.getX());
-	green(easing, startTime, endTime, startValue.getY(), endValue.getY());
-	blue(easing, startTime, endTime, startValue.getZ(), endValue.getZ());
-}
-
-void Sprite::updateTransitions() {
-	list<Transition*>::iterator transition = transitions->begin();
-	while (transition != transitions->end()) {
-		if ((*transition)->isOutdated()) {
-			delete (*transition);
-			transitions->erase(transition++);
-		}
-		else {
-			(*transition)->update();
-			++transition;
-		}
-	}
-}
-
 //Initialization
+
+void Sprite::shutdownComponent() {
+
+}
 
 bool Sprite::initializeTexture(list<Texture*>* loadedTextures, Direct3D* direct3D, HWND* hwnd) {
 	bool unique = true;
@@ -205,7 +95,7 @@ bool Sprite::initializeModel(list<Model*>*, Direct3D* direct3D, HWND* hwnd) {
 	return true;
 }
 
-bool Sprite::update() {
-	 updateTransitions();
-	 return true;
+bool Sprite::updateComponent() {
+	return true;
 }
+

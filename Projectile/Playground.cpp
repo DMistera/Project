@@ -1,8 +1,5 @@
 #include "Playground.h"
 
-#include "Game.h"
-#include "System.h"
-
 Playground::Playground(Game * gameP, System * systemP) : State (gameP, systemP) {
 }
 
@@ -30,8 +27,7 @@ bool Playground::makeGrass() {
 
 bool Playground::update(long deltaTime) {
 	moveCamera(deltaTime);
-	Vector mousePosition = gameP->getInput()->getMousePosition();
-	text->setText(to_string(sizeof(unsigned int)) + " " + to_string(sizeof(Vector)));
+	text->setText(to_string(sizeof(unsigned int)) + " " + to_string(sizeof(Vector3)));
 	return true;
 }
 
@@ -42,11 +38,11 @@ void Playground::moveCamera(long deltaTime) {
 	Input* input = gameP->getInput();
 	float shift = 0.04f*deltaTime;
 	if (input->isKeyDown(DIK_UP))
-		camera->move(Vector(0.0f, shift, 0.0f));
+		camera->move(Vector3(0.0f, shift, 0.0f));
 	if (input->isKeyDown(DIK_DOWN))
-		camera->move(Vector(0.0f, -shift, 0.0f));
+		camera->move(Vector3(0.0f, -shift, 0.0f));
 	if (input->isKeyDown(DIK_LEFT))
-		camera->move(Vector(-shift, 0.0f, 0.0f));
+		camera->move(Vector3(-shift, 0.0f, 0.0f));
 	if (input->isKeyDown(DIK_RIGHT))
-		camera->move(Vector(shift, 0.0f, 0.0f));
+		camera->move(Vector3(shift, 0.0f, 0.0f));
 }

@@ -88,13 +88,13 @@
     <Filter Include="Source Files\System\Game\Sprite\Character">
       <UniqueIdentifier>{ba2c9049-d0a7-4a00-a2ae-2e4aa1b2e9f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Animation">
+      <UniqueIdentifier>{56502abe-3ee6-4794-a4ef-1203ab5e2a33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Source Files\System\Input</Filter>
@@ -153,6 +153,18 @@
     <ClCompile Include="Transition.cpp">
       <Filter>Source Files\System\Game\Sprite\Transition</Filter>
     </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderable.cpp">
+      <Filter>Source Files\System\Game\Sprite\Renderable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TargetVersion.h">
@@ -181,9 +193,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source Files\System\Graphics\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Source Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>Source Files\System\Graphics</Filter>
@@ -223,6 +232,15 @@
     </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Source Files\System\Game\Sprite\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Source Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Source Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Source Files\System\Game\Sprite\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

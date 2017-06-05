@@ -1,7 +1,7 @@
 #pragma once
 
 #include <list>
-#include "Sprite.h"
+#include "Renderable.h"
 #include "Input.h"
 
 class Game;

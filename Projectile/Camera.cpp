@@ -1,22 +1,22 @@
 #include "Camera.h"
 
 Camera::Camera() {
-	position = new Vector();
-	rotation = new Vector();
+	position = new Vector3();
+	rotation = new Vector3();
 }
 
 Camera::~Camera() {
 }
 
-void Camera::setPosition(Vector v) {
+void Camera::setPosition(Vector3 v) {
 	*position = v;
 }
 
-void Camera::setRotation(Vector v) {
+void Camera::setRotation(Vector3 v) {
 	*rotation = v;
 }
 
-void Camera::move(Vector v) {
+void Camera::move(Vector3 v) {
 	position->setX(position->getX() + v.getX());
 	position->setY(position->getY() + v.getY());
 	position->setZ(position->getZ() + v.getZ());

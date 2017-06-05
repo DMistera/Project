@@ -24,3 +24,5 @@ private:
 	System* systemP;
 	HWND* hwnd;
 };
+
+#include "System.h"

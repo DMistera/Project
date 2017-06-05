@@ -2,10 +2,12 @@
 
 #include "State.h"
 #include "Block.h"
-#include "Text.h"
 
 class Game;
 class System;
+
+//I don't know why but including it first doesn't work
+class Text;
 
 class Playground : public State {
 public:
@@ -19,3 +21,7 @@ private:
 	bool makeGrass();
 	Text* text;
 };
+
+#include "Game.h"
+#include "System.h"
+#include "Text.h"

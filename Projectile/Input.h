@@ -6,7 +6,7 @@
 #pragma comment(lib, "dxguid.lib")
 
 #include <dinput.h>
-#include "Vector.h"
+#include "Vector2.h"
 
 class System;
 
@@ -19,7 +19,7 @@ public:
 	bool frame();
 	bool isKeyDown(unsigned int key);
 	bool isKeyUp(unsigned int key);
-	Vector getMousePosition();
+	Vector2 getMousePosition();
 private:
 	bool readKeyboard();
 	bool readMouse();

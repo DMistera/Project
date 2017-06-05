@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sprite.h"
+#include "TextureShader.h"
 #include "Bitmap.h"
 #include <vector>
 
@@ -9,8 +10,7 @@ public:
 	Text(string text);
 	bool initialize(Direct3D * direct3D, HWND * hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) override;
 	bool render(Direct3D* direct3D, HWND* hwnd, Camera* camera) override;
-	bool update() override;
-	void getTextureBorders(Vector * topLeft, Vector * bottomRight, int character);
+	void getTextureBorders(Vector3 * topLeft, Vector3 * bottomRight, int character);
 	float getWidth();
 	void setText(string text);
 private:
@@ -20,5 +20,9 @@ private:
 	vector<Sprite*>* letters;
 	float size;
 	string text;
-	Vector position;
+	Vector3 position;
+
+	// Inherited via Renderable
+	virtual void shutdownComponent() override;
+	virtual bool updateComponent() override;
 };

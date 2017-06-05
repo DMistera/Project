@@ -1,6 +1,6 @@
 #pragma once
 
-class Sprite;
+class Renderable;
 
 class Transition {
 public:
@@ -10,12 +10,12 @@ public:
 	enum Type {
 		MOVE_X, MOVE_Y, SCALE_X, SCALE_Y, FADE, COLOR_RED, COLOR_GREEN, COLOR_BLUE
 	};
-	Transition(Sprite* sprite, Type type, Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
+	Transition(Renderable* sprite, Type type, Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
 	void update();
 	bool isOutdated();
 private:
 	float getValue();
-	Sprite* target;
+	Renderable* target;
 	Type type;
 	Easing easing;
 	unsigned long startTime;
@@ -24,4 +24,4 @@ private:
 	float endValue;
 };
 
-#include "Sprite.h"
+#include "Renderable.h"

@@ -1,7 +1,5 @@
 #include "Game.h"
 
-//Includes of forward declarations
-#include "System.h"
 
 Game::Game(System * systemP) {
 	states = new list<State*>;

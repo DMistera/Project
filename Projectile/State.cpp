@@ -11,7 +11,7 @@ State::State(Game* gameP, System* systemP) {
 	loadedModels = new list<Model*>;
 	objects = new list<Renderable*>;
 	camera = new Camera();
-	camera->setPosition(Vector(0.0f, 0.0f, -1.0f));
+	camera->setPosition(Vector3(0.0f, 0.0f, -1.0f));
 }
 
 bool State::render() {

@@ -1,7 +1,8 @@
 #pragma once
 
-#include "State.h"
 #include "Bitmap.h"
+#include "State.h"
+#include "Sprite.h"
 
 class Game;
 class System;
@@ -13,7 +14,10 @@ public:
 	virtual bool initialize() override;
 	virtual bool update(long) override;
 	virtual void shutdown() override;
-	Vector getCursorPosition();
+	Vector2 getCursorPosition();
 private:
 	Sprite* cursor;
 };
+
+#include "Game.h"
+#include "System.h"

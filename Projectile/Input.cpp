@@ -106,6 +106,6 @@ bool Input::isKeyUp(unsigned int key) {
 	return !(keyboardState[key] & 0x80);
 }
 
-Vector Input::getMousePosition() {
-	return Vector(mouseX, mouseY);
+Vector2 Input::getMousePosition() {
+	return Vector2((float)mouseX, (float)mouseY);
 }
