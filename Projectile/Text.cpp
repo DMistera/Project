@@ -8,8 +8,8 @@ Text::Text(string text) {
 
 bool Text::initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) {
 	for (int i = startCharacter; i < startCharacter + rows*columns; i++) {
-		Vector3 topLeft;
-		Vector3 bottomRight;
+		Vector2 topLeft;
+		Vector2 bottomRight;
 		getTextureBorders(&topLeft, &bottomRight, i);
 		Sprite* letter = new Sprite(
 			new Texture("Resources//Textures//font.dds"),
@@ -35,7 +35,7 @@ bool Text::render(Direct3D * direct3D, HWND * hwnd, Camera * camera) {
 	return true;
 }
 
-void Text::getTextureBorders(Vector3* topLeft, Vector3* bottomRight, int character) {
+void Text::getTextureBorders(Vector2* topLeft, Vector2* bottomRight, int character) {
 	int order = character - startCharacter;
 	topLeft->setX((1.0f / columns)*(order % columns));
 	topLeft->setY((1.0f / rows)*(order / columns));

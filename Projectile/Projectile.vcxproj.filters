@@ -91,6 +91,9 @@
     <Filter Include="Source Files\System\Game\Sprite\Animation">
       <UniqueIdentifier>{56502abe-3ee6-4794-a4ef-1203ab5e2a33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\System\Game\Sprite\Character\CharacterSheet">
+      <UniqueIdentifier>{99cfd36c-9b53-4b84-8116-b503d1daedd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -159,11 +162,17 @@
     <ClCompile Include="Vector2.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Renderable.cpp">
       <Filter>Source Files\System\Game\Sprite\Renderable</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\System\Game\Sprite\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterSheet.cpp">
+      <Filter>Source Files\System\Game\Sprite\Character\CharacterSheet</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\System\Game\Sprite\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Source Files\System\Game\Sprite\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSheet.h">
+      <Filter>Source Files\System\Game\Sprite\Character\CharacterSheet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

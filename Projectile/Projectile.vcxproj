@@ -114,6 +114,8 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterSheet.cpp" />
     <ClCompile Include="ColorShader.cpp" />
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="Direct3D.cpp" />
@@ -141,6 +143,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterSheet.h" />
     <ClInclude Include="ColorShader.h" />
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="Direct3D.h" />

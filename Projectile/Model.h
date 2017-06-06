@@ -2,7 +2,6 @@
 
 #include <d3d11.h>
 #include "D3DX\d3dx10math.h"
-#include "Texture.h"
 
 class Model {
 public:

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include "Renderable.h"
+#include <string>
 
 using namespace std;
 
@@ -22,6 +22,3 @@ protected:
 	Shader* shader;
 	Model* model;
 };
-
-#include "Game.h"
-#include "System.h"

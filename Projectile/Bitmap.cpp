@@ -1,6 +1,6 @@
 #include "Bitmap.h"
 
-Bitmap::Bitmap(float width, float height, Vector3 textureTopLeft, Vector3 textureBottomRight) : Model(
+Bitmap::Bitmap(float width, float height, Vector2 textureTopLeft, Vector2 textureBottomRight) : Model(
 	new D3DXVECTOR3[4] { D3DXVECTOR3(width/2, height/2, 0.0f) , D3DXVECTOR3(width/2, -height/2, 0.0f) , D3DXVECTOR3(-width/2, -height/2, 0.0f) , D3DXVECTOR3(-width/2, height/2, 0.0f) },
 	new unsigned long[6] {0 , 1, 2, 3, 0, 2},
 	new D3DXVECTOR2[4] { 
@@ -12,7 +12,7 @@ Bitmap::Bitmap(float width, float height, Vector3 textureTopLeft, Vector3 textur
 
 }
 
-Bitmap::Bitmap(float width, float height) : Bitmap(width, height, Vector3(0.0f, 0.0f), Vector3(1.0f, 1.0f)) {
+Bitmap::Bitmap(float width, float height) : Bitmap(width, height, Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f)) {
 
 }
 

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Bitmap.h"
 #include "State.h"
 #include "Sprite.h"
 

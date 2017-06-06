@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Renderable.h"
 #include "Sprite.h"
 #include <vector>
 
 class Animation : public Renderable {
 public:
+	Animation(vector<Sprite*>* frames);
 	Animation(vector<Sprite*>* frames, unsigned long delay, bool loop);
 	void start();
 	void reset();
@@ -16,6 +16,9 @@ private:
 	vector<Sprite*>* frames;
 	unsigned long delay;
 	bool loop;
+	unsigned long startTime;
+	// Inherited via Renderable
+	virtual void shutdownComponent() override;
+	virtual bool updateComponent() override;
 
-	//TODO finish this class
 };

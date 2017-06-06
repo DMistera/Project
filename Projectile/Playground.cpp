@@ -6,6 +6,8 @@ Playground::Playground(Game * gameP, System * systemP) : State (gameP, systemP) 
 bool Playground::initialize() {
 	makeGrass();
 	showText();
+	if (!(addSprite(new Character())))
+		return false;
 	return true;
 }
 

@@ -50,20 +50,22 @@ void Sprite::shutdownComponent() {
 }
 
 bool Sprite::initializeTexture(list<Texture*>* loadedTextures, Direct3D* direct3D, HWND* hwnd) {
-	bool unique = true;
-	for (Texture* &t : *loadedTextures) {
-		if (t->getFileName() == texture->getFileName()) {
-			texture->shutdown();
-			delete texture;
-			texture = t;
-			unique = false;
+	if (!texture->isInitialized()) {
+		bool unique = true;
+		for (Texture* &t : *loadedTextures) {
+			if (t->getFileName() == texture->getFileName()) {
+				texture->shutdown();
+				delete texture;
+				texture = t;
+				unique = false;
+			}
 		}
-	}
-	if (unique)
-		loadedTextures->push_back(texture);
-	if (!(texture->initialize(direct3D->getDevice(), hwnd))) {
-		MessageBox(*hwnd, "Could not initialize texture", "Error", NULL);
-		return false;
+		if (unique)
+			loadedTextures->push_back(texture);
+		if (!(texture->initialize(direct3D->getDevice(), hwnd))) {
+			MessageBox(*hwnd, "Could not initialize texture", "Error", NULL);
+			return false;
+		}
 	}
 	return true;
 }

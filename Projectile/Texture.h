@@ -4,6 +4,8 @@
 #include "D3DX\d3dx11tex.h"
 #include <string>
 
+using namespace std;
+
 class Texture {
 public:
 	Texture(LPCSTR fileName);
@@ -12,7 +14,9 @@ public:
 	void shutdown();
 	ID3D11ShaderResourceView* getResourceView();
 	std::string getFileName();
+	bool isInitialized();
 private:
+	bool initialized;
 	LPCSTR fileName;
 	ID3D11ShaderResourceView* resourceView;
 };

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Graphics.h"
-#include "State.h"
 #include "Playground.h"
 #include "Cursor.h"
 
