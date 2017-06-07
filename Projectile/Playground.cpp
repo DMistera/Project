@@ -6,20 +6,20 @@ Playground::Playground(Game * gameP, System * systemP) : State (gameP, systemP) 
 bool Playground::initialize() {
 	makeGrass();
 	showText();
-	if (!(addSprite(new Character())))
+	if (!(addSprite(new Character(this))))
 		return false;
 	return true;
 }
 
 bool Playground::showText() {
-	text = new Text("Naxess is a viking");
+	text = new Text(this, "Naxess is a viking");
 	if (!addSprite(text))
 		return false;
 	return true;
 }
 
 bool Playground::makeGrass() {
-	Sprite* grass = new Block();
+	Sprite* grass = new Block(this);
 	addSprite(grass);
 	for (int i = 0; i < 100; i++) {
 		grass->move(Transition::Easing::LINEAR, i * 1000, (i + 1) * 1000, -50, 50);
@@ -29,7 +29,8 @@ bool Playground::makeGrass() {
 
 bool Playground::update(long deltaTime) {
 	moveCamera(deltaTime);
-	text->setText(to_string(sizeof(unsigned int)) + " " + to_string(sizeof(Vector3)));
+	float x = gameP->getInput()->getMousePosition().getX();
+	text->setText(to_string(x));
 	return true;
 }
 

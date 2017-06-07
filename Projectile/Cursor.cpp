@@ -5,7 +5,7 @@ Cursor::Cursor(Game* gameP, System* systemP) : State(gameP, systemP) {
 }
 
 bool Cursor::initialize() {
-	cursor = new Sprite(new Texture("Resources//Textures//cursor.dds"), new TextureShader(), new Bitmap(20.0f, 20.0f));
+	cursor = new Sprite(this, new Texture("Resources//Textures//cursor.dds"), new TextureShader(), new Bitmap(20.0f, 20.0f));
 	if (!addSprite(cursor))
 		return false;
 	cursor->setColor(Vector3(0.0f, 1.0f, 0.0f));

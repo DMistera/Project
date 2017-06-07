@@ -10,13 +10,15 @@
 #include "Texture.h"
 #include "Transition.h"
 
+class State;
+
 using namespace std;
 
 class Renderable {
 public:
-	Renderable();
+	Renderable(State* stateP);
 	virtual bool render(Direct3D* direct3D, HWND* hwnd, Camera* camera) = 0;
-	bool update();
+	bool update(unsigned long deltaTime);
 	virtual bool initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) = 0;
 	void shutdown();
 	void setPosition(Vector2 v);
@@ -41,9 +43,10 @@ public:
 	void acquireParameters(Vector2 position, Vector2 scaleVector, Vector3 colorVector, float alpha, float rotation);
 	Vector2 getPosition();
 protected:
+	State* stateP;
 	void updateTransitions();
 	virtual void shutdownComponent() = 0;
-	virtual bool updateComponent() = 0;
+	virtual bool updateComponent(unsigned long deltaTime) = 0;
 	list<Transition*>* transitions;
 	Vector2 position;
 	Vector2 scaleVector;
@@ -51,3 +54,7 @@ protected:
 	float alpha;
 	float rotation;
 };
+
+#define H_RENDERABLE
+
+#include "State.h"

@@ -1,9 +1,9 @@
 #include "Animation.h"
 
-Animation::Animation(vector<Sprite*>* frames) : Animation(frames, 100, true) {
+Animation::Animation(State* stateP, vector<Sprite*>* frames) : Animation(stateP, frames, 100, true) {
 }
 
-Animation::Animation(vector<Sprite*>* frames, unsigned long delay, bool loop) {
+Animation::Animation(State* stateP, vector<Sprite*>* frames, unsigned long delay, bool loop) : Renderable(stateP) {
 	this->frames = frames;
 	this->delay = delay;
 	this->loop = loop;
@@ -40,7 +40,7 @@ void Animation::shutdownComponent() {
 		sprite->shutdown();
 }
 
-bool Animation::updateComponent() {
+bool Animation::updateComponent(unsigned long deltaTime) {
 	for (Sprite* &sprite : *frames)
 		sprite->acquireParameters(position, scaleVector, colorVector, alpha, rotation);
 	return true;

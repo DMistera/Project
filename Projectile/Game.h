@@ -1,10 +1,12 @@
 #pragma once
 
-#include "Graphics.h"
-#include "Playground.h"
-#include "Cursor.h"
+#include "State.h"
 
 class System;
+class Playground;
+class Cursor;
+class Graphics;
+class Input;
 
 class Game {
 public:
@@ -25,3 +27,6 @@ private:
 };
 
 #include "System.h"
+#include "Graphics.h"
+#include "Playground.h"
+#include "Cursor.h"

@@ -1,12 +1,12 @@
 #pragma once
 
 #include "State.h"
-#include "Block.h"
-#include "Character.h"
-#include "Text.h"
 
 class Game;
 class System;
+class Text;
+class Block;
+class Character;
 
 class Playground : public State {
 public:
@@ -23,3 +23,6 @@ private:
 
 #include "Game.h"
 #include "System.h"
+#include "Text.h"
+#include "Block.h"
+#include "Character.h"

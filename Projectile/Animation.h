@@ -1,12 +1,16 @@
 #pragma once
 
-#include "Sprite.h"
 #include <vector>
+#include "Renderable.h"
+
+class Sprite;
+class Direct3D;
+class Camera;
 
 class Animation : public Renderable {
 public:
-	Animation(vector<Sprite*>* frames);
-	Animation(vector<Sprite*>* frames, unsigned long delay, bool loop);
+	Animation(State* stateP, vector<Sprite*>* frames);
+	Animation(State* stateP, vector<Sprite*>* frames, unsigned long delay, bool loop);
 	void start();
 	void reset();
 	// Inherited via Renderable
@@ -19,6 +23,8 @@ private:
 	unsigned long startTime;
 	// Inherited via Renderable
 	virtual void shutdownComponent() override;
-	virtual bool updateComponent() override;
+	virtual bool updateComponent(unsigned long deltaTime) override;
 
 };
+
+#include "Sprite.h"

@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-Sprite::Sprite(Texture * texture, Shader * shader, Model * model) {
+Sprite::Sprite(State* stateP, Texture * texture, Shader * shader, Model * model) : Renderable(stateP) {
 	this->texture = texture;
 	this->shader = shader;
 	this->model = model;
@@ -97,7 +97,7 @@ bool Sprite::initializeModel(list<Model*>*, Direct3D* direct3D, HWND* hwnd) {
 	return true;
 }
 
-bool Sprite::updateComponent() {
+bool Sprite::updateComponent(unsigned long deltaTime) {
 	return true;
 }
 

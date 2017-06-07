@@ -98,6 +98,9 @@ void Input::processInput() {
 		mouseY = screenHeight;
 }
 
+
+//HUGE HINT! Use DIK_[character] keys!
+
 bool Input::isKeyDown(unsigned int key) {
 	return (keyboardState[key] & 0x80);
 }

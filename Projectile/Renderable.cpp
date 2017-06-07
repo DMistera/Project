@@ -7,7 +7,8 @@ Vector2 Renderable::getPosition() {
 //Setters
 
 
-Renderable::Renderable() {
+Renderable::Renderable(State* stateP) {
+	this->stateP = stateP;
 	position = Vector2();
 	colorVector = Vector3(1.0f, 1.0f, 1.0f);
 	scaleVector = Vector2(1.0f, 1.0f);
@@ -16,9 +17,9 @@ Renderable::Renderable() {
 	transitions = new list<Transition*>;
 }
 
-bool Renderable::update() {
+bool Renderable::update(unsigned long deltaTime) {
 	updateTransitions();
-	return updateComponent();
+	return updateComponent(deltaTime);
 }
 
 void Renderable::shutdown() {

@@ -1,8 +1,5 @@
 #include "State.h"
 
-#include "Game.h"
-#include "System.h"
-
 State::State(Game* gameP, System* systemP) {
 	this->gameP = gameP;
 	this->systemP = systemP;
@@ -23,10 +20,20 @@ bool State::render() {
 	return true;
 }
 
-void State::updateObjects() {
+bool State::updateObjects(unsigned long deltaTime) {
 	for (Renderable* &object : *objects) {
-		object->update();
+		if (!object->update(deltaTime))
+			return false;
 	}
+	return true;
+}
+
+Game * State::getGamePointer() {
+	return gameP;
+}
+
+Camera * State::getCamera() {
+	return camera;
 }
 
 bool State::addSprite(Renderable* object) {

@@ -5,9 +5,11 @@
 #include "Bitmap.h"
 #include <vector>
 
+#ifdef H_SPRITE
+
 class Text : public Renderable {
 public:
-	Text(string text);
+	Text(State* stateP, string text);
 	bool initialize(Direct3D * direct3D, HWND * hwnd, list<Texture*>* loadedTextures, list<Shader*>* loadedShaders, list<Model*>* loadedModels) override;
 	bool render(Direct3D* direct3D, HWND* hwnd, Camera* camera) override;
 	void getTextureBorders(Vector2 * topLeft, Vector2 * bottomRight, int character);
@@ -24,5 +26,7 @@ private:
 
 	// Inherited via Renderable
 	virtual void shutdownComponent() override;
-	virtual bool updateComponent() override;
+	virtual bool updateComponent(unsigned long deltaTime) override;
 };
+
+#endif

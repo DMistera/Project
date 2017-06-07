@@ -1,6 +1,6 @@
 #include "Text.h"
 
-Text::Text(string text) {
+Text::Text(State* stateP, string text) : Renderable(stateP) {
 	this->text = text;
 	letters = new vector<Sprite*>;
 	size = 20.0f;
@@ -11,7 +11,7 @@ bool Text::initialize(Direct3D* direct3D, HWND* hwnd, list<Texture*>* loadedText
 		Vector2 topLeft;
 		Vector2 bottomRight;
 		getTextureBorders(&topLeft, &bottomRight, i);
-		Sprite* letter = new Sprite(
+		Sprite* letter = new Sprite(stateP, 
 			new Texture("Resources//Textures//font.dds"),
 			new TextureShader(),
 			new Bitmap(size, size, topLeft, bottomRight));
@@ -54,6 +54,6 @@ void Text::setText(string text) {
 void Text::shutdownComponent() {
 }
 
-bool Text::updateComponent() {
+bool Text::updateComponent(unsigned long deltaTime) {
 	return true;
 }
