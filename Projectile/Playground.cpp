@@ -28,24 +28,10 @@ bool Playground::makeGrass() {
 }
 
 bool Playground::update(long deltaTime) {
-	moveCamera(deltaTime);
 	float x = gameP->getInput()->getMousePosition().getX();
 	text->setText(to_string(x));
 	return true;
 }
 
 void Playground::shutdown() {
-}
-
-void Playground::moveCamera(long deltaTime) {
-	Input* input = gameP->getInput();
-	float shift = 0.04f*deltaTime;
-	if (input->isKeyDown(DIK_UP))
-		camera->move(Vector3(0.0f, shift, 0.0f));
-	if (input->isKeyDown(DIK_DOWN))
-		camera->move(Vector3(0.0f, -shift, 0.0f));
-	if (input->isKeyDown(DIK_LEFT))
-		camera->move(Vector3(-shift, 0.0f, 0.0f));
-	if (input->isKeyDown(DIK_RIGHT))
-		camera->move(Vector3(shift, 0.0f, 0.0f));
 }

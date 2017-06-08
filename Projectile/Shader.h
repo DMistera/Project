@@ -14,6 +14,7 @@ public:
 	bool initialize(ID3D11Device* device, HWND* hwnd);
 	void shutdown();
 	bool render(HWND, ID3D11DeviceContext*, int, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, ID3D11ShaderResourceView*, D3DXVECTOR3 color, float alpha);
+	bool isInitialized();
 protected:
 	struct MatrixBuffer {
 		D3DXMATRIX world;
@@ -25,6 +26,7 @@ protected:
 		float alpha;
 	}; //TODO Implement this to sprite
 	bool initializeShaders(ID3D11Device* device);
+	bool initialized;
 	void outputShaderError(ID3D10Blob* error, LPCSTR shaderFilename);
 	ID3D11VertexShader* vertexShader;
 	ID3D11PixelShader* pixelShader;

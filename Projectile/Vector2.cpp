@@ -21,3 +21,16 @@ void Vector2::setY(float value) {
 	y = value;
 }
 
+void Vector2::addX(float value) {
+	x += value;
+}
+
+void Vector2::addY(float value) {
+	y += value;
+}
+
+void Vector2::add(Vector2 v) {
+	addX(v.getX());
+	addY(v.getY());
+}
+

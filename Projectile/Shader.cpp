@@ -6,6 +6,7 @@ Shader::Shader() {
 	inputLayout = 0;
 	matrixBuffer = 0;
 	hwnd = 0;
+	initialized = false;
 }
 
 Shader::~Shader() {
@@ -27,7 +28,12 @@ bool Shader::render(HWND hwnd, ID3D11DeviceContext * deviceContent, int indexCou
 	return true;
 }
 
+bool Shader::isInitialized() {
+	return initialized;
+}
+
 bool Shader::initializeShaders(ID3D11Device * device) {
+	initialized = true;
 	ID3D10Blob* errorMessage = 0;
 	ID3D10Blob* vertexShaderBuffer = 0;
 	ID3D10Blob* pixelShaderBuffer = 0;
@@ -104,6 +110,10 @@ void Shader::outputShaderError(ID3D10Blob * error, LPCSTR shaderFilename) {
 }
 
 bool Shader::setShaderParameters(HWND hwnd, ID3D11DeviceContext * deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* shaderResource, D3DXVECTOR3 color, float alpha) {
+	if (!initialized) {
+		MessageBox(hwnd, "Trying to access unitialized shader!", "Error", NULL);
+		return false;
+	}
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
 	MatrixBuffer* data;
 	D3DXMatrixTranspose(&worldMatrix, &worldMatrix);

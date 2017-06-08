@@ -7,6 +7,7 @@ Animation::Animation(State* stateP, vector<Sprite*>* frames, unsigned long delay
 	this->frames = frames;
 	this->delay = delay;
 	this->loop = loop;
+	startTime = 0;
 }
 
 void Animation::start() {
@@ -15,6 +16,10 @@ void Animation::start() {
 
 void Animation::reset() {
 	start();
+}
+
+bool Animation::hasStarted() {
+	return (unsigned long)GetTickCount64() >= startTime;
 }
 
 bool Animation::render(Direct3D * direct3D, HWND * hwnd, Camera * camera) {

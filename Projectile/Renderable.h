@@ -41,12 +41,17 @@ public:
 	void blue(Transition::Easing easing, unsigned long startTime, unsigned long endTime, float startValue, float endValue);
 	void color(Transition::Easing easing, unsigned long startTime, unsigned long endTime, Vector3 startValue, Vector3 endValue);
 	void acquireParameters(Vector2 position, Vector2 scaleVector, Vector3 colorVector, float alpha, float rotation);
+	void acquireParameters(Renderable*);
 	Vector2 getPosition();
+	Vector2 getScale();
+	Vector3 getColor();
+	float getAlpha();
+	float getRotation();
 protected:
 	State* stateP;
 	void updateTransitions();
-	virtual void shutdownComponent() = 0;
 	virtual bool updateComponent(unsigned long deltaTime) = 0;
+	virtual void shutdownComponent() = 0;
 	list<Transition*>* transitions;
 	Vector2 position;
 	Vector2 scaleVector;

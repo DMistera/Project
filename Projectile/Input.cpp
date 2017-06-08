@@ -18,8 +18,13 @@ bool Input::initialize(System* systemP) {
 	mouseY = 0;
 	HINSTANCE* instance = systemP->getInstance();
 	HWND* hwnd = systemP->getHWND();
-	if (FAILED(DirectInput8Create(*instance, DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&directInput, NULL)))
+	HRESULT result = DirectInput8Create(*instance, DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&directInput, NULL);
+	if (FAILED(result)) {
+		_com_error err(result);
+		LPCTSTR errMsg = err.ErrorMessage();
+		MessageBox(*hwnd, errMsg, "Error", NULL);
 		return false;
+	}
 	if (FAILED(directInput->CreateDevice(GUID_SysKeyboard, &keyboard, NULL)))
 		return false;
 	if (FAILED(keyboard->SetDataFormat(&c_dfDIKeyboard)))

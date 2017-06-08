@@ -6,6 +6,7 @@
 #pragma comment(lib, "dxguid.lib")
 
 #include <dinput.h>
+#include <comdef.h>
 #include "Vector2.h"
 
 class System;

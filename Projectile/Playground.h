@@ -16,7 +16,6 @@ public:
 	 bool update(long) override;
 	 void shutdown() override;
 private:
-	void moveCamera(long);
 	bool makeGrass();
 	Text* text;
 };

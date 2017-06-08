@@ -7,6 +7,9 @@ public:
 	float getY();
 	void setX(float value);
 	void setY(float value);
+	void addX(float value);
+	void addY(float value);
+	void add(Vector2 v);
 private:
 	float x;
 	float y;

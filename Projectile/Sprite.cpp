@@ -71,20 +71,22 @@ bool Sprite::initializeTexture(list<Texture*>* loadedTextures, Direct3D* direct3
 }
 
 bool Sprite::initializeShader(list<Shader*>* loadedShaders, Direct3D* direct3D, HWND* hwnd) {
-	bool unique = true;
-	for (Shader* &s : *loadedShaders) {
-		if (typeid(s) == typeid(shader)) {
-			shader->shutdown();
-			delete shader;
-			shader = s;
-			unique = false;
+	if (!shader->isInitialized()) {
+		bool unique = true;
+		for (Shader* &s : *loadedShaders) {
+			if (typeid(s) == typeid(shader)) {
+				shader->shutdown();
+				delete shader;
+				shader = s;
+				unique = false;
+			}
 		}
-	}
-	if(unique)
-		loadedShaders->push_back(shader);
-	if (!(shader->initialize(direct3D->getDevice(), hwnd))) {
-		MessageBox(*hwnd, "Could not initialize shader", "Error", NULL);
-		return false;
+		if (unique)
+			loadedShaders->push_back(shader);
+		if (!(shader->initialize(direct3D->getDevice(), hwnd))) {
+			MessageBox(*hwnd, "Could not initialize shader", "Error", NULL);
+			return false;
+		}
 	}
 	return true;
 }

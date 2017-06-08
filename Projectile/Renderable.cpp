@@ -4,6 +4,10 @@ Vector2 Renderable::getPosition() {
 	return position;
 }
 
+Vector2 Renderable::getScale() {
+	return scaleVector;
+}
+
 //Setters
 
 
@@ -115,6 +119,18 @@ void Renderable::color(Transition::Easing easing, unsigned long startTime, unsig
 	blue(easing, startTime, endTime, startValue.getZ(), endValue.getZ());
 }
 
+Vector3 Renderable::getColor() {
+	return colorVector;
+}
+
+float Renderable::getAlpha() {
+	return alpha;
+}
+
+float Renderable::getRotation() {
+	return rotation;
+}
+
 void Renderable::updateTransitions() {
 	list<Transition*>::iterator transition = transitions->begin();
 	while (transition != transitions->end()) {
@@ -135,4 +151,12 @@ void Renderable::acquireParameters(Vector2 position, Vector2 scaleVector, Vector
 	this->colorVector = colorVector;
 	this->alpha = alpha;
 	this->rotation = rotation;
+}
+
+void Renderable::acquireParameters(Renderable * parent) {
+	this->position = parent->getPosition();
+	this->scaleVector = parent->getScale();
+	this->colorVector = parent->getColor();
+	this->alpha = parent->getAlpha();
+	this->rotation = parent->getRotation();
 }
